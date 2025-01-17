@@ -1,4 +1,5 @@
-import time,os
+import time,os,keyboard
+from pynput.keyboard import Key, Listener
 sorszam = 1
 elemszam = 1
 map = [
