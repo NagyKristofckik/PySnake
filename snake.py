@@ -4,12 +4,14 @@ from pynput.keyboard import Listener
 def make_global():
             global sorvaltozo
             global elemvaltozo
+            global a
+            a=0 
             sorvaltozo=0
             elemvaltozo=-2
 make_global()
 def task1():
-    global sorvaltozo,elemvaltozo
-    while True:
+    global sorvaltozo,elemvaltozo,a
+    while a==0:
         
 
         t=[["*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"],
@@ -32,7 +34,7 @@ def task1():
         os.system("cls")
         for row in t:
             print(" ".join(row))
-        a=0  
+         
 
         sor=int(7)
         elem=int(15) 
@@ -66,8 +68,8 @@ def task1():
         
 
 def task2():
-    global sorvaltozo, elemvaltozo
-    while True:
+    global sorvaltozo, elemvaltozo,a
+    while a==0:
         
         
         def show(key):
@@ -91,7 +93,10 @@ def task2():
                     elemvaltozo=2
             if key == key.esc:
                 os.system('cls')
-                leal()
+                global a
+                a=1
+                print("viszlát!")
+                exit()
 
         with Listener(on_press=lambda k: show(k.char if hasattr(k, 'char') else k)) as listener:
             listener.join()
